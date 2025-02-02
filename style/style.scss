@@ -1,0 +1,240 @@
+@mixin product_box(){
+    width: 225px;
+    height: 225px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+@import "./CTfont";
+
+@import "./myColor";
+
+* {
+    font-family: "Noto Sans TC", "cwTexMing", "cwTexKai", "cwTexYen", "cwTexFangSong", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+p{
+    text-indent: 2em;
+}
+.fw_900{
+    font-weight: 900;
+}
+.bg_cover{
+    background-size: cover;
+    background-position: center center;
+}
+.product_box {
+    width: 225px;
+    height: 225px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+body{
+    position: relative;
+
+    // carousel
+    section#s01{
+        div#carousel_01{
+            div.carousel-inner{
+                div#carousel_pic01 {
+                    background-image: url(../images/05.avif);
+                }
+                div#carousel_pic02 {
+                    background-image: url(../images/03.avif);
+                }
+                div#carousel_pic03 {
+                    background-image: url(../images/04.avif);
+                }
+            }
+        }
+    }
+
+    // Nav 副選單功能
+    nav{
+        position: sticky !important;
+        top: 0;
+        z-index: 10;
+
+        div.container-fluid{
+            div.navbar-collapse{
+                ul.navbar-nav{
+                    li.dropdown{
+                        ul.dropdown-menu{
+                            min-width: 100%;
+                            li.dropdownSubmenu{
+                                &:hover{
+                                    position: relative;
+
+                                    .dropdown-menu{
+                                        // 顯示副選單
+                                        display: block;
+                                        top: -30%;
+                                        left: 100%;
+                                        width: 100px !important;
+                                    }
+                                }
+                                a{
+                                    &::after{
+                                        transition: 0.5s;
+                                    }
+        
+                                    &:hover::after{
+                                        transform: rotate(-90deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                div.dropdown{
+                    div.dropdown-menu{
+                        min-width: 20rem;
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #AboutUsModal{
+        .modal-dialog{
+            .modal-content{
+                .modal-header, .modal-footer{
+                    background-color: var(--myColor23);
+                    color: lightcyan;
+                }
+
+                // .modal-body{
+                //     background-color: var(--myColor15);
+                // }
+            }
+        }
+
+        p{
+            span{
+                background-color: var(--myColor16);
+                border-radius: 7px;
+                color: var(--myColor21);
+                font-weight: 700;
+            }
+        }
+    }
+
+    #CustomerServiceModal{
+        .modal-dialog{
+            .modal-content{
+                .modal-body{
+                    .form-floating{
+                        textarea.form-control{
+                            height: calc(13.5rem + 2px);
+                        }
+                    }
+
+                    .row{
+                        .form-select{
+                            width: 95%;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Featured_Products
+    section#s02{
+        div#carousel_02{
+            div.carousel-inner{
+                    div.carousel-item{
+                        div{
+                            div.product_fade{
+                                opacity: 0;
+                                transition: all 0.5s;
+                        }
+
+                            &:hover{
+                                div.product_fade{
+                                    opacity: 1;
+                                }
+                            }
+                        }
+
+                        div#product_pic01 {
+                            background-image: url(../images/products/ItemID_1/Introduction01.jpg);
+                            @include product_box()
+                        }
+                        
+                    }
+                }
+            >button{
+                width: 2rem;
+            }
+        }
+    }
+
+    // Show_Product
+    section#s03{
+        #showProducts{
+            min-height: 100vh;
+
+            div{
+                div{
+                    div.product_fade {
+                        opacity: 0;
+                        transition: all 0.5s;
+                    }
+            
+                    &:hover {
+                        div.product_fade {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                h5{
+                    width: 225px;
+                }
+            }
+
+            div.modal{
+                div.modal-dialog{
+                    div.modal-content{
+                        div.modal-body{
+                            div.row{
+                                div.carousel{
+                                    div.carousel-inner{
+                                        >div{
+                                            width: 500px;
+                                            height: 500px;
+                                        }
+                                    }
+                                }
+
+                                >div{
+                                    pre{
+                                        white-space: pre-wrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .testPic{
+        background-image: url(../images/products/ItemID_1/Introduction01.jpg);
+        @include product_box();
+    }
+}
+
+// @import "./footer";
+
+@import "./RWD";

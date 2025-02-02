@@ -1,0 +1,145 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+:root{
+    --mycolor01: #b78338;
+    --mycolor02: #915c4c;
+    --mycolor03: #40686A;
+    --mycolor04: #2f1812;
+    --mycolor05: #be2f9a;
+}
+
+body{
+    font-family: 'cwTeXYen', sans-serif;
+}
+
+/* 自訂配色 class */
+.bg-color01{
+    background-color: var(--mycolor01);
+}
+.bg-color02{
+    background-color: var(--mycolor02);
+}.bg-color03{
+    background-color: var(--mycolor03);
+}.bg-color04{
+    background-color: var(--mycolor04);
+}.bg-color05{
+    background-color: var(--mycolor05);
+}.bg-color06{
+    background-color: var(--mycolor06);
+}
+
+.fw-900{
+    font-weight: 900;
+}
+.bg_cover{
+    background-size: cover;
+    background-position: center;
+}
+
+.roller_box{
+    position: relative;
+    overflow: hidden;
+}
+.roller{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000050;
+    line-height: 280px;
+    transform: translateY(-100%);
+    transition: all 1s;
+}
+.roller-box:hover .roller{
+    transform: translateY(0);
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/* body{
+    background-color: var(--mycolor02);
+    padding: 20px;
+}
+
+.wrapper{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+nav{
+    background-color: var(--mycolor01);
+    text-align: center;
+}
+
+nav ul{
+    display: inline-block;
+}
+
+nav ul li{
+    list-style-type: none;
+    float: left;
+}
+nav ul li a{
+    display: block;
+    color: var(--mycolor06);
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0 25px;
+    margin: 0 10px;
+    border: solid 3px var(--mycolor03);
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: var(--mycolor04);
+}
+
+.content{
+    color: var(--mycolor06);
+    padding: 50px 30px;
+    background-color: var(--mycolor03);
+    text-align: center;
+}
+
+.content h1{
+    color: var(--mycolor01);
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.content p{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.content a{
+    display: block;
+    background-color: var(--mycolor05);
+    color: var(--mycolor06);
+    margin: 0 auto;
+    width: 150px;
+    height: 40px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.footer{
+    background-color: var(--mycolor05);
+    text-align: center;
+}
+
+.footer p{
+    color: var(--mycolor06);
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 10px auto;
+} */
+
+/* RWD語法 */
+/* @media screen and (max-width: 1024px){
+    .wrapper{
+        width: 100%;
+    }
+} */

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS Dropdown</title>
+    <!-- Bootstrap Link連結 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <style>
+        .navbar-nav li:hover>ul.dropdownMenu {
+            display: block;
+        }
+        
+        .dropdownSubmenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu>.dropdownMenu {
+            top: 0%;
+            left: 100%;
+            margin-top: -3px;
+        }
+        
+        .dropdownMenu>li>a:hover:after {
+            transform: rotate(-90deg);
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>第二個範例 - Nested Dropdown 巢狀式下拉選單</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">C w C Channel</a>
+        <!-- RWD button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDropdown2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- 導覽列上的超連結 links on nav -->
+        <div class="collapse navbar-collapse" id="navDropdown2">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">作品</a>
+                </li>
+                <!-- 下拉式選單 Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">網頁程式語言</a>
+
+                    <!-- 下拉式選單選項 Dropdown items -->
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">HTML</a></li>
+                        <li><a class="dropdown-item" href="#">CSS</a></li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">JavaScript</a>
+
+                            <!-- 子選單Level 2 -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Functions</a>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">DOM</a>
+
+                                    <!-- 子選單Level 3 -->
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">getElementById</a></li>
+                                        <li><a class="dropdown-item" href="#">addEventListener</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+</body>
+
+</html>

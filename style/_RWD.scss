@@ -1,0 +1,17 @@
+@media (max-width:992px) {
+    // Featured_Products
+    section#s02{
+        div#carousel_02{
+            div.carousel-inner{
+                div.carousel-item{
+                    overflow-x: auto;
+                    scrollbar-width: none;
+                }
+            }
+        }
+    }
+}
+
+// @media (max-width:768px) {
+    
+// }

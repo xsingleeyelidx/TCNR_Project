@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* 中文字體引入設定 */
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexming.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+:root {
+  /* 配色表 */
+  --myColor01: #BE2F9A; /* 玫瑰紅 - (感覺)浪漫、女性化、溫暖。(應用)帶有浪漫氣息和柔和氛圍，適用於高端品牌、婚禮設計、時尚等 */
+  --myColor02: #BE2F9A; /* 紫紅色 - (感覺)優雅、神秘、充滿熱情。(應用)用於高端或奢華品牌設計，適合藝術類、女性化的設計 */
+  --myColor03: #F25C5C; /* 日落橙 - (感覺)活力十足、溫暖、陽光。(應用)適合用於活力四射的設計，如促銷、兒童品牌等，吸引視覺注意 */
+  --myColor04: #FF6B6B; /* 珊瑚粉 - (感覺)甜美、清新、親和力。(應用)適用於春季產品、女性設計、婚禮或美容產品等，傳遞輕盈和柔和感 */
+  --myColor05: #D46B6D; /* 夕陽紅 - (感覺)溫暖、懷舊、舒適。(應用)用於溫馨的室內設計或品牌，帶來柔和的情感氛圍，適合家庭或日常產品 */
+  --myColor06: #D76B3A; /* 燒焦橙 - (感覺)穩定、成熟、自然。(應用)適合秋季設計，或大自然、戶外產品的設計，帶來穩重的感覺 */
+  --myColor07: #915C4C; /* 紅褐色 - (感覺)成熟、深沉、溫暖。(應用)用於自然主題、復古設計、傳遞穩重感的品牌形象 */
+  --myColor08: #CBB4D4; /* 粉紫色 - (感覺)優雅、柔和、夢幻。(應用)適合浪漫、女性化設計，如婚禮、時尚、化妝品等 */
+  --myColor09: #B9AEDC; /* 薰衣草紫-(感覺)柔和、舒緩、輕盈。(應用)適用於安靜、放鬆的品牌形象，如健康、養生、冥想等產品 */
+  --myColor10: #BFA5A0; /* 煙燻粉 - (感覺)穩重、優雅、溫和。(應用)適用於現代、簡約風格的設計，創造出溫暖且具有深度的氛圍 */
+  --myColor11: #B1D8E4; /* 薄荷藍 - (感覺)清新、放鬆、輕盈。(應用)用於夏季主題、健康、環保產品，傳遞舒適與清新的感覺 */
+  --myColor12: #A9B7C6; /* 霧藍灰 - (感覺)冷靜、沉穩、現代。(應用)適用於極簡設計或現代品牌，帶來清爽、輕盈且理性的視覺感受 */
+  --myColor13: #4A6B8C; /* 海洋藍 - (感覺)深沉、穩定、冷靜。(應用)用於傳遞穩定感的品牌，如金融、科技產品設計，或與海洋相關的主題 */
+  --myColor14: #40686A; /* 青色　 - (感覺)寧靜、清新、自然。(應用)用於健康、環保、科技等行業，帶來自然與清新的感覺 */
+  --myColor15: #A8D5BA; /* 清新綠 - (感覺)輕盈、新鮮、自然。(應用)用於與自然、健康、環保相關的設計，或春季和夏季的主題設計 */
+  --myColor16: #A7E3D7; /* 薄荷綠 - (感覺)清爽、冷靜、活力。(應用)適合用於夏季或春季設計，傳遞輕鬆、愉快的感覺，尤其在美妝和健康產品中 */
+  --myColor17: #78866B; /* 橄欖綠 - (感覺)穩重、自然、優雅。(應用)常見於大自然或戶外品牌設計，帶有成熟感和穩定感 */
+  --myColor18: #6E7B43; /* 松木綠 - (感覺)穩定、自然、質樸。(應用)用於環保、戶外活動、或自然主題的設計，傳遞力量與穩定感 */
+  --myColor19: #C4A12A; /* 深土黃 - (感覺)溫暖、大地感、穩重。(應用)適用於秋季設計、家居裝飾、或傳遞自然、穩定感的品牌形象 */
+  --myColor20: #F6A400; /* 蜂蜜黃 - (感覺)明亮、陽光、溫暖。(應用)用於充滿陽光與活力的設計，適合食品、健康產品，或任何需要吸引眼球的設計 */
+  --myColor21: #9C6E34; /* 金銅色 - (感覺)富貴、溫暖、自然。(應用)適用於高端品牌設計，或傳遞溫暖與穩定感的場景 */
+  --myColor22: #9E7A56; /* 焦糖棕 - (感覺)溫暖、舒適、濃郁。(應用)常用於秋冬設計，適合用於餐飲、家居等產品，帶來豐富且溫馨的感覺 */
+  --myColor23: #2F1812; /* 深棕色 - (感覺)穩重、成熟、經典。(應用)用於經典風格的設計，適合商業、專業或高端產品，傳遞穩定與可靠 */
+  --myColor24: #2F1812; /* 深紅棕 - (感覺)深沉、穩定、豪華。(應用)適合用於高端品牌設計或傳遞高質感的設計，常見於金融和豪華品牌 */
+  --myColor25: #B78338; /* 土黃色 - (感覺)自然、溫暖、大地感。(應用)用於與大自然相關的設計，適合秋冬季節的色調，或土壤、農業等領域 */
+}
+
+* {
+  font-family: "Noto Sans TC", "cwTexMing", "cwTexKai", "cwTexYen", "cwTexFangSong", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+p {
+  text-indent: 2em;
+}
+
+.fw_900 {
+  font-weight: 900;
+}
+
+.bg_cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+.product_box {
+  width: 225px;
+  height: 225px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body {
+  position: relative;
+}
+body section#s01 div#carousel_01 div.carousel-inner div#carousel_pic01 {
+  background-image: url(../images/05.avif);
+}
+body section#s01 div#carousel_01 div.carousel-inner div#carousel_pic02 {
+  background-image: url(../images/03.avif);
+}
+body section#s01 div#carousel_01 div.carousel-inner div#carousel_pic03 {
+  background-image: url(../images/04.avif);
+}
+body nav {
+  position: sticky !important;
+  top: 0;
+  z-index: 10;
+}
+body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu {
+  min-width: 100%;
+}
+body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu:hover {
+  position: relative;
+}
+body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu:hover .dropdown-menu {
+  display: block;
+  top: -30%;
+  left: 100%;
+  width: 100px !important;
+}
+body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu a::after {
+  transition: 0.5s;
+}
+body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu a:hover::after {
+  transform: rotate(-90deg);
+}
+body nav div.container-fluid div.navbar-collapse div.dropdown div.dropdown-menu {
+  min-width: 20rem;
+  margin-top: 1rem;
+}
+body #AboutUsModal .modal-dialog .modal-content .modal-header, body #AboutUsModal .modal-dialog .modal-content .modal-footer {
+  background-color: var(--myColor23);
+  color: lightcyan;
+}
+body #AboutUsModal p span {
+  background-color: var(--myColor16);
+  border-radius: 7px;
+  color: var(--myColor21);
+  font-weight: 700;
+}
+body #CustomerServiceModal .modal-dialog .modal-content .modal-body .form-floating textarea.form-control {
+  height: calc(13.5rem + 2px);
+}
+body #CustomerServiceModal .modal-dialog .modal-content .modal-body .row .form-select {
+  width: 95%;
+  margin: 0 auto;
+}
+body section#s02 div#carousel_02 div.carousel-inner div.carousel-item div div.product_fade {
+  opacity: 0;
+  transition: all 0.5s;
+}
+body section#s02 div#carousel_02 div.carousel-inner div.carousel-item div:hover div.product_fade {
+  opacity: 1;
+}
+body section#s02 div#carousel_02 div.carousel-inner div.carousel-item div#product_pic01 {
+  background-image: url(../images/products/ItemID_1/Introduction01.jpg);
+  width: 225px;
+  height: 225px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+body section#s02 div#carousel_02 > button {
+  width: 2rem;
+}
+body section#s03 #showProducts {
+  min-height: 100vh;
+}
+body section#s03 #showProducts div div div.product_fade {
+  opacity: 0;
+  transition: all 0.5s;
+}
+body section#s03 #showProducts div div:hover div.product_fade {
+  opacity: 1;
+}
+body section#s03 #showProducts div h5 {
+  width: 225px;
+}
+body section#s03 #showProducts div.modal div.modal-dialog div.modal-content div.modal-body div.row div.carousel div.carousel-inner > div {
+  width: 500px;
+  height: 500px;
+}
+body section#s03 #showProducts div.modal div.modal-dialog div.modal-content div.modal-body div.row > div pre {
+  white-space: pre-wrap;
+}
+body .testPic {
+  background-image: url(../images/products/ItemID_1/Introduction01.jpg);
+  width: 225px;
+  height: 225px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 992px) {
+  section#s02 div#carousel_02 div.carousel-inner div.carousel-item {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}/*# sourceMappingURL=style.css.map */
