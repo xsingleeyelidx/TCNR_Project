@@ -11,15 +11,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> <!-- animate -->
 	<link rel="stylesheet" href="./style/all.min.css" /> <!-- ICON -->
 	<link rel="stylesheet" href="./style/style.css" />
-
-	<!-- <script>
-		showPrice = (button) => {
-			const price = button.dataset.price;
-			// console.log(price); // test
-			const priceSpan = button.parentElement.parentElement.parentElement.children[4].children[0]; // 上下層尋找位置
-			priceSpan.innerHTML = price;
-		};
-	</script> -->
 </head>
 
 <body class="bg-dark">
@@ -78,20 +69,18 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- Nav List -->
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mb-2 mb-lg-0 me-auto fs-5">
-					<li class="nav-item">
-						<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#AboutUsModal">關於我們</a>
-					</li>
+			<div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+				<div class="navbar-nav mb-2 mb-lg-0 me-auto fs-5">
+					<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#AboutUsModal">關於我們</a>
 					<!-- 狗狗 -->
-					<li class="nav-item dropdown">
+					<span class="dropdown">
 						<a class="nav-link dropdown-toggle" href="javascript:;" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							呵護汪汪
 						</a>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu text-center">
 							<li class="dropdownSubmenu">
 								<a class="dropdown-item dropdown-toggle" href="javascript:;" role="button" data-bs-toggle="dropdown" aria-expanded="false">主餐</a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu text-center">
 									<li>
 										<a class="dropdown-item" href="javascript:;">飼料</a>
 									</li>
@@ -105,7 +94,7 @@
 							</li>
 							<li class="dropdownSubmenu">
 								<a class="dropdown-item dropdown-toggle" href="javascript:;" role="button" data-bs-toggle="dropdown" aria-expanded="false">零嘴</a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu text-center">
 									<li>
 										<a class="dropdown-item" href="javascript:;">肉乾</a>
 									</li>
@@ -145,13 +134,13 @@
 								<a class="dropdown-item" href="javascript:;">美容</a>
 							</li>
 						</ul>
-					</li>
+					</span>
 					<!-- 貓咪 -->
-					<li class="nav-item dropdown">
+					<span class="dropdown">
 						<div class="nav-link dropdown-toggle" href="javascript:;" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							喵喵專屬
 						</div>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu text-center">
 							<li>
 								<button class="dropdown-item">LINGO</button>
 							</li>
@@ -171,14 +160,14 @@
 								<a class="dropdown-item" href="">毛起來 MAO UP</a>
 							</li>
 						</ul>
-					</li>
+					</span>
 					<!-- 品牌區 -->
 					<!-- https://shop.maoup.com.tw/blogs/%E6%AF%9B%E8%B5%B7%E4%BE%86select/%E5%8F%B0%E7%81%A3%E5%AF%B5%E7%89%A9%E4%BA%BA%E6%B0%A3%E5%93%81%E7%89%8C%E6%8E%A8%E8%96%A6?srsltid=AfmBOoqJ7US__SZwii66kZuJiYm_UKnzyygXmVJD69wtQtiVdI5pGmQP -->
-					<li class="nav-item dropdown">
+					<span class="dropdown">
 						<div class="nav-link dropdown-toggle" href="javascript:;" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							品牌專區
 						</div>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu text-center">
 							<li>
 								<button class="dropdown-item">主餐</button>
 								<!-- 飼料、罐頭、鮮食 -->
@@ -215,41 +204,35 @@
 								<a class="dropdown-item" href="">美容</a>
 							</li>
 						</ul>
-					</li>
+					</span>
 					<!-- 活動區 -->
-					<li class="nav-item">
-						<a class="nav-link disabled">手刀活動</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#MembershipTermsModal">會員公約</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#CustomerServiceModal">有話想說</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#QAModal">常見問答</a>
-					</li>
-				</ul>
-				<!-- ICON -->
-				<a href="javascript:;" v-show="!flag_login" title="會員登入" data-bs-toggle="modal" data-bs-target="#MemberLoginModal">
-					<i class="fa-solid fa-user-group text-white fa-2x"></i>
-				</a>
-				<a href="javascript:;" v-show="flag_login" title="我的購物車" data-bs-toggle="modal" data-bs-target="#ShoppingCartModal">
-					<i class="fa-solid fa-cart-arrow-down text-white fa-2x ms-3"></i>
-				</a>
-				<div class="dropdown ms-3">
-					<a href="javascript:;" title="搜尋商品" data-bs-toggle="dropdown">
-						<i class="fa-solid fa-magnifying-glass text-white fa-2x"></i>
-					</a>
-					<div class="dropdown-menu dropdown-menu-end px-2">
-						<form class="d-flex" role="search">
-							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-							<button class="btn btn-outline-success" type="button"> <!-- @click="search" -->
-								Search
-							</button>
-						</form>
-					</div>
+					<a class="nav-link disabled">手刀活動</a>
+					<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#MembershipTermsModal">會員公約</a>
+					<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#CustomerServiceModal">有話想說</a>
+					<a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#QAModal">常見問答</a>
 				</div>
+				<!-- ICON -->
+				<span>
+					<a href="javascript:;" v-show="!flag_login" title="會員登入" data-bs-toggle="modal" data-bs-target="#MemberLoginModal">
+						<i class="fa-solid fa-user-group text-white fa-2x"></i>
+					</a>
+					<a href="javascript:;" v-show="flag_login" title="我的購物車" data-bs-toggle="modal" data-bs-target="#ShoppingCartModal">
+						<i class="fa-solid fa-cart-arrow-down text-white fa-2x ms-3"></i>
+					</a>
+					<div class="dropdown d-inline-block ms-3">
+						<a href="javascript:;" title="搜尋商品" data-bs-toggle="dropdown">
+							<i class="fa-solid fa-magnifying-glass text-white fa-2x"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-end px-2">
+							<form class="d-flex" role="search">
+								<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+								<button class="btn btn-outline-success" type="button">
+									Search
+								</button>
+							</form>
+						</div>
+					</div>
+				</span>
 			</div>
 		</div>
 	</nav>
@@ -598,15 +581,45 @@
 		<div class="modal-dialog modal-xl">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5">購物車訂單</h1>
+					<h1 class="modal-title fs-4 fw_900">購物車訂單</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					...
+					<div v-if="cart.length === 0" class="text-center">
+						<p class="text-muted">購物車內沒有商品</p>
+					</div>
+					<div v-else>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>商品名稱</th>
+									<th>價格</th>
+									<th>數量</th>
+									<th>小計</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(item, index) in cart" :key="item.ItemID">
+									<td>{{ item.ProductName }}</td>
+									<td>NT$ {{ item.ProductPrice }}</td>
+									<td>
+										<input type="number" v-model="item.quantity" class="form-control"
+											min="1" @change="updateQuantity(index, item.quantity)">
+									</td>
+									<td>NT$ {{ item.ProductPrice * item.quantity }}</td>
+									<td>
+										<button class="btn btn-danger btn-sm" @click="removeFromCart(index)">刪除</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<h5 class="text-end">總金額：NT$ {{ totalPrice }}</h5>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
-					<button type="button" class="btn btn-success">送出訂單</button>
+					<button type="button" class="btn btn-success" @click="submitOrder">送出訂單</button>
 				</div>
 			</div>
 		</div>
@@ -731,11 +744,11 @@
 			</div>
 			
 			<button class="carousel-control-prev" type="button" data-bs-target="#carousel_02" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="carousel-control-prev-icon"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 			<button class="carousel-control-next" type="button" data-bs-target="#carousel_02" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="carousel-control-next-icon"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
@@ -757,7 +770,7 @@
                             <a href="javascript:;" title="看商品內容" @click="openModal(item)">
                                 <i class="fa-solid fa-magnifying-glass text-white fa-3x"></i>
                             </a>
-                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#" title="加入購物車">
+                            <a href="javascript:;" title="加入購物車" @click="addToCart(item)">
                                 <i class="fa-solid fa-cart-arrow-down text-white fa-3x"></i>
                             </a>
                         </div>
@@ -770,7 +783,7 @@
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-3 fw_900">呵護汪汪 > 主餐 > 飼料</h1>
+                            <h1 class="modal-title fs-3 fw_900">呵護汪汪 > 主餐 > {{ selectedItem.ProductType }}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -794,11 +807,11 @@
                                         </div>
                                         <!-- L&R Btn -->
                                         <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="carousel-control-prev-icon"></span>
                                             <span class="visually-hidden">Previous</span>
                                         </button>
                                         <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="carousel-control-next-icon"></span>
                                             <span class="visually-hidden">Next</span>
                                         </button>
                                     </div>
@@ -1102,9 +1115,72 @@
 			const quantity = ref(null); // modal 顯示數量
 			const clear = () => {price.value = null, quantity.value = null};
 
+			// 購物車
+			const cart = reactive([]);
+			const addToCart = (item) => {
+				const productInCart = cart.find(p => p.ItemID === item.ItemID);
+				if (productInCart) {
+					productInCart.quantity += 1;
+				} else {
+					cart.push({ ...item, quantity: 1 });
+				}
+			};
+			const removeFromCart = (index) => {
+				cart.splice(index, 1);
+			};
+			const updateQuantity = (index, newQuantity) => {
+				if (newQuantity > 0) {
+					cart[index].quantity = newQuantity;
+				}
+			};
+			const totalPrice = computed(() => {
+				return cart.reduce((sum, item) => sum + item.ProductPrice * item.quantity, 0);
+			});
+
+			// 確認訂單
+			const submitOrder = () => {
+				if (cart.length === 0) {
+					alert("購物車是空的，無法送出訂單！");
+					return;
+				}
+				const confirmOrder = confirm(`您的訂單總金額為 NT$ ${totalPrice.value}\n確定要送出訂單嗎？`);
+				if (!confirmOrder) { return; } // 點選取消則不送出訂單
+
+				const orderData = {
+					userID: getCookie("Uid01"), // 取得用戶登入的 ID
+					items: cart.map(item => ({
+						ItemID: item.ItemID,
+						ProductName: item.ProductName,
+						Quantity: item.quantity,
+						Price: item.ProductPrice
+					})),
+					totalAmount: totalPrice.value
+				};
+				console.log(orderData);
+				alert("訂單送出成功！");
+				cart.length = 0; // 清空購物車
+				$('#ShoppingCartModal').modal('hide');
+				// // 送出訂單到 API
+				// axios.post("https://example.com/api/submitOrder", orderData)
+				// 	.then(response => {
+				// 		if (response.data.success) {
+				// 			alert("訂單送出成功！");
+				// 			cart.length = 0; // 清空購物車
+				// 			$('#ShoppingCartModal').modal('hide');
+				// 		} else {
+				// 			alert("訂單送出失敗：" + response.data.message);
+				// 		}
+				// 	})
+				// 	.catch(error => {
+				// 		console.error("訂單送出失敗：", error);
+				// 		alert("系統錯誤，請稍後再試！");
+				// 	});
+			};
+
+
 			onMounted(() => {
 				axios.all([
-					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsIntroduction.php'),
+					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
 					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php'),
 					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts2.php'),
 					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php'),
@@ -1144,6 +1220,10 @@
                 $('#productModal').on('hidden.bs.modal', clear); // 用 jQuery 監聽 Modal
 			});
 
+			onUpdated(() => {
+				console.log(toRaw(cart));
+			});
+
 			onBeforeUnmount(() => {
 				$('#productModal').on('hidden.bs.modal', clear); // 組件卸載時移除監聽
 			});
@@ -1164,7 +1244,9 @@
 				login, flag_login,
 				// showProducts
 				isLoad, products, showItem, firstProductImg, selectedItem, 
-                openModal, price, quantity, clear, productImages
+                openModal, price, quantity, clear, productImages,
+				// cart
+				cart, addToCart, removeFromCart, updateQuantity, totalPrice, submitOrder,
 			};
 		},
 	}

@@ -80,22 +80,22 @@ body nav {
   top: 0;
   z-index: 10;
 }
-body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu {
+body nav div.container-fluid div.navbar-collapse div.navbar-nav span.dropdown ul.dropdown-menu {
   min-width: 100%;
 }
-body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu:hover {
+body nav div.container-fluid div.navbar-collapse div.navbar-nav span.dropdown ul.dropdown-menu li.dropdownSubmenu:hover {
   position: relative;
 }
-body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu:hover .dropdown-menu {
+body nav div.container-fluid div.navbar-collapse div.navbar-nav span.dropdown ul.dropdown-menu li.dropdownSubmenu:hover .dropdown-menu {
   display: block;
   top: -30%;
   left: 100%;
   width: 100px !important;
 }
-body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu a::after {
+body nav div.container-fluid div.navbar-collapse div.navbar-nav span.dropdown ul.dropdown-menu li.dropdownSubmenu a::after {
   transition: 0.5s;
 }
-body nav div.container-fluid div.navbar-collapse ul.navbar-nav li.dropdown ul.dropdown-menu li.dropdownSubmenu a:hover::after {
+body nav div.container-fluid div.navbar-collapse div.navbar-nav span.dropdown ul.dropdown-menu li.dropdownSubmenu a:hover::after {
   transform: rotate(-90deg);
 }
 body nav div.container-fluid div.navbar-collapse div.dropdown div.dropdown-menu {
