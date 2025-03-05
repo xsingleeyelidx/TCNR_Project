@@ -12,14 +12,14 @@
 	<link rel="stylesheet" href="./style/all.min.css" /> <!-- ICON -->
 	<link rel="stylesheet" href="./style/style.css" />
 
-	<!-- <script>
+	<script>
 		showPrice = (button) => {
 			const price = button.dataset.price;
 			// console.log(price); // test
 			const priceSpan = button.parentElement.parentElement.parentElement.children[4].children[0]; // 上下層尋找位置
 			priceSpan.innerHTML = price;
 		};
-	</script> -->
+	</script>
 </head>
 
 <body class="bg-dark">
@@ -238,13 +238,13 @@
 					<i class="fa-solid fa-cart-arrow-down text-white fa-2x ms-3"></i>
 				</a>
 				<div class="dropdown ms-3">
-					<a href="javascript:;" title="搜尋商品" data-bs-toggle="dropdown">
+					<a href="#" title="搜尋商品" data-bs-toggle="dropdown">
 						<i class="fa-solid fa-magnifying-glass text-white fa-2x"></i>
 					</a>
 					<div class="dropdown-menu dropdown-menu-end px-2">
 						<form class="d-flex" role="search">
 							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-							<button class="btn btn-outline-success" type="button"> <!-- @click="search" -->
+							<button class="btn btn-outline-success" type="submit">
 								Search
 							</button>
 						</form>
@@ -478,38 +478,38 @@
 				</div>
 				<div class="modal-body">
 					<div class="mb-3">
-						<label for="reg-Account" class="form-label">會員<span class="text-primary fw_900">帳號</span>註冊</label>
-						<input type="text" id="reg-Account" v-model="reg_Account" :class="{'is-valid' : flag_reg_Account, 'is-invalid' : !flag_reg_Account}" class="form-control" placeholder="請輸入 8~20 字的英數混合帳號">
+						<label for="RegisterAccount" class="form-label">會員<span class="text-primary fw_900">帳號</span>註冊</label>
+						<input type="text" id="RegisterAccount" name="RegisterAccount" v-model="reg_Account" :class="{'is-valid' : flag_reg_Account, 'is-invalid' : !flag_reg_Account}" class="form-control" placeholder="請輸入 8~20 字的英數混合帳號">
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">帳號字數不符規定</div>
 					</div>
 					<div class="mb-3">
-						<label for="reg-Password" class="form-label">會員<span class="text-danger fw_900">密碼</span>註冊</label>
-						<input type="text" id="reg-Password" v-model="reg_Password" :class="{'is-valid' : flag_reg_Password, 'is-invalid' : !flag_reg_Password}" class="form-control" placeholder="請輸入 8~20 字的字數密碼">
+						<label for="RegisterPassword" class="form-label">會員<span class="text-danger fw_900">密碼</span>註冊</label>
+						<input type="text" id="RegisterPassword" name="RegisterPassword" v-model="reg_Password" :class="{'is-valid' : flag_reg_Password, 'is-invalid' : !flag_reg_Password}" class="form-control" placeholder="請輸入 8~20 字的字數密碼">
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">密碼字數不符規定</div>
 					</div>
 					<div class="mb-3">
-						<label for="reg-rePassword" class="form-label">會員<span class="text-danger fw_900">密碼</span>確認</label>
-						<input type="text" id="reg-rePassword" v-model="reg_rePassword" :class="{'is-valid' : flag_reg_rePassword, 'is-invalid' : !flag_reg_rePassword}" class="form-control" placeholder="請再次輸入密碼">
+						<label for="CheckPassword" class="form-label">會員<span class="text-danger fw_900">密碼</span>確認</label>
+						<input type="text" id="CheckPassword" name="CheckPassword" v-model="reg_rePassword" :class="{'is-valid' : flag_reg_rePassword, 'is-invalid' : !flag_reg_rePassword}" class="form-control" placeholder="請再次輸入密碼">
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">密碼錯誤</div>
 					</div>
 					<div class="mb-3">
-						<label for="reg-Name" class="form-label">會員姓名</label>
-						<input type="text" id="reg-Name" v-model="reg_Name" :class="{'is-valid' : flag_reg_Name, 'is-invalid' : !flag_reg_Name}" class="form-control" placeholder="請輸入 4~20 字的名稱">
+						<label for="RegisterName" class="form-label">會員姓名</label>
+						<input type="text" id="RegisterName" name="RegisterName" v-model="reg_Name" :class="{'is-valid' : flag_reg_Name, 'is-invalid' : !flag_reg_Name}" class="form-control" placeholder="請輸入 5~20 字的名稱">
 						<div class="valid-feedback"></div>
-						<div class="invalid-feedback">請輸入 4~20 字的名稱</div>
+						<div class="invalid-feedback">請輸入 5~20 字的名稱</div>
 					</div>
 					<div class="mb-3">
-						<label for="reg-Tel" class="form-label">連絡電話</label>
-						<input type="text" id="reg-Tel" v-model="reg_Tel" :class="{'is-valid' : flag_reg_Tel, 'is-invalid' : !flag_reg_Tel}" class="form-control" placeholder="請輸入 8~20 碼的連絡電話">
+						<label for="RegisterTel" class="form-label">連絡電話</label>
+						<input type="text" id="RegisterTel" name="RegisterTel" v-model="reg_Tel" :class="{'is-valid' : flag_reg_Tel, 'is-invalid' : !flag_reg_Tel}" class="form-control" placeholder="請輸入 8~20 碼的連絡電話">
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">請輸入 8~20 碼的連絡電話</div>
 					</div>
 					<div class="mb-3">
-						<label for="reg-Email" class="form-label">連絡信箱</label>
-						<input type="email" id="reg-Email" v-model="reg_Email" :class="{'is-valid' : flag_reg_Email, 'is-invalid' : !flag_reg_Email}" class="form-control" placeholder="請輸入 10~30 字的連絡信箱">
+						<label for="RegisterEmail" class="form-label">連絡信箱</label>
+						<input type="email" id="RegisterEmail" name="RegisterEmail" v-model="reg_Email" :class="{'is-valid' : flag_reg_Email, 'is-invalid' : !flag_reg_Email}" class="form-control" placeholder="請輸入 10~30 字的連絡信箱">
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">請輸入 10~30 字的連絡信箱</div>
 					</div>
@@ -580,7 +580,7 @@
 					</div>
 					<div class="form-check">
 						<input type="checkbox" v-model="flag_reg_chk" :class="{'is-valid' : flag_reg_chk, 'is-invalid' : !flag_reg_chk}" class="form-check-input">
-						<label class="form-check-label">{{ reg_chk_text }}</label>
+						<label for="" class="form-check-label">{{ reg_chk_text }}</label>
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">須確認同意<span class="text-primary fw_900">會員條款</span>才能註冊</div>
 					</div>
@@ -744,92 +744,95 @@
 	<!-- Show_Product -->
 	<section id="s03" class="container my-3">
 		<div class="mb-3 py-2 display-4 fw_900 text-center text-white">產品列表</div>
-		<div id="showProducts" class="row overflow-auto" v-show="isLoad">
-			<template v-for="(item, index) in productsIntroduction.content" :key="item.ItemID">
-				<div class="col-lg-3 col-md-4 col-sm-6 p-2">
-					<div :id="'product_ItemID_' + item.ItemID" class="testPic product_box rounded-3 mx-auto mb-1 text-center" :title="item.ProductName">
-						<div class="product_fade w-100 h-100">
-							<div class="bg-black w-100 h-100 rounded-3 opacity-75 d-flex flex-column justify-content-around align-items-lg-center">
-								<a href="javascript:;" data-bs-toggle="modal" :data-bs-target="'#modal_Item_' + item.ItemID" title="看商品內容">
-									<i class="fa-solid fa-magnifying-glass text-white fa-3x"></i>
-								</a>
-								<a href="javascript:;" data-bs-toggle="modal" data-bs-target="#" title="加入購物車">
-									<i class="fa-solid fa-cart-arrow-down text-white fa-3x"></i>
-								</a>
-							</div>
+		<div id="showProducts" class="row overflow-auto" v-if="isLoad">
+
+			<!-- example -->
+			<div class="col-lg-3 col-md-4 col-sm-6 p-2">
+				<div id="product_ItemID_1" class="testPic product_box rounded-3 mx-auto mb-1 text-center" title=" HALO 嘿囉-成犬 無榖低脂 火雞肉配方 (3.5磅/10磅) ">
+					<div class="product_fade w-100 h-100">
+						<div class="bg-black w-100 h-100 rounded-3 opacity-75 d-flex flex-column justify-content-around align-items-lg-center">
+							<a id="" class="" href="javascript:;" data-bs-toggle="modal" data-bs-target=" #modal_Item_1 " title="看商品內容">
+								<i class="fa-solid fa-magnifying-glass text-white fa-3x"></i>
+							</a>
+							<a id="" class="" href="javascript:;" data-bs-toggle="modal" data-bs-target="#" title="加入購物車">
+								<i class="fa-solid fa-cart-arrow-down text-white fa-3x"></i>
+							</a>
 						</div>
 					</div>
-					<h5 class="text-truncate mx-auto text-white" :title="item.ProductName">{{ item.ProductName }}</h5>
 				</div>
-				<div class="modal fade" :id="'modal_Item_' + item.ItemID" tabindex="-1">
-					<div class="modal-dialog modal-xl">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-3 fw_900">呵護汪汪 > 主餐 > 飼料</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-lg-6 m-auto">
-										<div :id="'carousel_Item_' + item.ItemID" class="carousel slide carousel-dark" data-bs-ride="false">
-											<!-- pic -->
-											<div class="carousel-inner" :id="'ItemID_' + item.ItemID">
+				<h5 class="text-truncate mx-auto text-white" title=" HALO 嘿囉-成犬 無榖低脂 火雞肉配方 (3.5磅/10磅) ">HALO 嘿囉-成犬 無榖低脂 火雞肉配方 (3.5磅/10磅)</h5>
+			</div>
+			<!-- Product modal -->
+			<div class="modal fade" id=" modal_Item_1 " tabindex="-1">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-3 fw_900">呵護汪汪 > 主餐 > 飼料</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-6 m-auto">
+									<div id=" carousel_Item_1 " class="carousel slide carousel-dark" data-bs-ride="false">
+										<!-- pic -->
+										<div class="carousel-inner" id="ItemID_1">
 
-												<img src="./images/load.gif" class="load" v-show="imagesLoading[item.ItemID]">
+											<div class="carousel-item bg_cover product_box active" style="background-image: url(./images/products/ItemID_1/Introduction01.jpg);"></div>
+											<div class="carousel-item bg_cover product_box" style="background-image: url(./images/products/ItemID_1/Introduction02.jpg);"></div>
 
-												<!-- 顯示商品圖片 -->
-												<!-- <div v-show="productImages.content[`ItemID_${item.ItemID}`]">
-													<div v-for="(image, index) in productImages.content[`ItemID_${item.ItemID}`]" :key="index" class="product-image">
-														<div :class="['carousel-item', 'bg_cover', 'product_box', { active: index === 0 }]" :style="'background-image: url(' + image + ');'"></div>
-													</div>
-												</div>
-
-												<div class="carousel-item bg_cover product_box" style="background-image: url(&quot;./images/products/ItemID_5/Introduction01.jpg&quot;);"></div> -->
-
-											</div>
-											<!-- L&R Btn -->
-											<button class="carousel-control-prev" type="button" :data-bs-target="'#carousel_Item' + item.ItemID" data-bs-slide="prev">
-												<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-												<span class="visually-hidden">Previous</span>
-											</button>
-											<button class="carousel-control-next" type="button" :data-bs-target="'#carousel_Item' + item.ItemID" data-bs-slide="next">
-												<span class="carousel-control-next-icon" aria-hidden="true"></span>
-												<span class="visually-hidden">Next</span>
-											</button>
 										</div>
-									</div>
-									<div class="col-lg-6 my-auto">
-										<h4 class="mb-3">{{ item.ProductName }}</h4>
-										<pre>{{ item.ProductIntroduction }}</pre>
-										<div class="mb-3">特色：
-											<span class="text-bg-danger badge">LaPetz 樂倍</span>
-											<span class="text-bg-info badge">台灣首創昆蟲寵物糧 </span>
-											<span class="text-bg-success badge">環保永續x完美蛋白</span>
-										</div>
-										<div class="row mb-3">
-											<div class="col-2 col-xl-1 text-nowrap">風味：</div>
-											<div class="col-10 col-xl-11" id="'taste_' + item.ItemID">
-												<button type="button" class="btn btn-sm btn-outline-success" v-for="category in getProductCategoriesByItemID(item.ItemID)" :key="item.ProductID">
-													{{ category }}
-												</button>
-	
-											</div>
-										</div>
-										<div class="mb-3">價格：NT<span class="text-danger fw_900 mx-1"> $950 </span>元/包</div>
-										<div class="mb-3">數量：　<span></span></div>
-										<button type="button" class="btn btn-warning w-100">訂購</button>
+										<!-- L&R Btn -->
+										<button class="carousel-control-prev" type="button" data-bs-target="#carousel_Item_1" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carousel_Item_1" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
 									</div>
 								</div>
+								<div class="col-lg-6 my-auto">
+									<h4 class="mb-3"> HALO 嘿囉-成犬 無榖低脂 火雞肉配方 (3.5磅/10磅) </h4>
+									<pre>
+										<!-- ◆ 專注營養與消化 維持免疫力<br>
+										◆ 更多鮮肉蛋白質，移除易敏大豆成分<br>
+										◆ 對毛皮更好，足量Omega3&6，黃金比例1:9<br>
+										◆ 更易消化，加倍益生菌添加益生質，後生元維持腸道健康<br>
+										◆ 包裝升級，更好保鮮夾鏈袋設計，使用可回收材質 -->
+									</pre>
+									<div class="mb-3">特色：
+										<span class="text-bg-danger badge">LaPetz 樂倍</span>
+										<span class="text-bg-info badge">台灣首創昆蟲寵物糧 </span>
+										<span class="text-bg-success badge">環保永續x完美蛋白</span>
+									</div>
+									<div class="row mb-3">
+										<div class="col-2 col-xl-1 text-nowrap">風味：</div>
+										<div class="col-10 col-xl-11" id="taste_1">
+
+											<!-- <button type="button" class="btn btn-sm btn-outline-success">牛肉醬佐雞肉起司</button>
+											<button type="button" class="btn btn-sm btn-outline-success">牛肉醬佐雞肉野菜</button>
+											<button type="button" class="btn btn-sm btn-outline-success">羊肉醬佐雞肉野菜</button>
+											<button type="button" class="btn btn-sm btn-outline-success">羊肉醬佐雞肉雞肝</button>
+											<button type="button" class="btn btn-sm btn-outline-success">雞肉醬佐嫩雞起司</button> -->
+
+										</div>
+									</div>
+									<div class="mb-3">價格：NT<span class="text-danger fw_900 mx-1"> $950 </span>元/包</div>
+									<div class="mb-3">數量：　<span></span></div>
+									<input type="submit" value="訂購" class="btn btn-warning w-100" onclick="myFunction()">
+								</div>
 							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">回上一頁</button>
-							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">回上一頁</button>
 						</div>
 					</div>
 				</div>
-			</template>
+			</div>
+
 		</div>
-		<img v-show="!isLoad" src="./images/load.gif" alt="" class="load">
+		<img v-if="!isLoad" src="./images/load.gif" alt="" class="load">
 	</section>
 
 	<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -859,9 +862,197 @@
 </body>
 
 <script src="./js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script> <!-- counterAnimation -->
+<script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script> <!-- counterAnimation -->
+
 <!-- <script src="js/wow.min.js"></script>
 <script>new WOW().init(); // 初始化 WOW</script> -->
+
+<script src="./js/jquery-3.7.1.js"></script>
+<!-- ajax -->
+<script>
+	$(function() {
+		// 取得產品 data
+
+		// 取得品名並生成主架構
+		$.ajax({
+			type: "GET",
+			// url: 'http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsIntroduction.php',
+			// url: 'http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsIntroduction.php',
+			url: 'http://192.168.60.11:8080/TCNR/0104/TCNR_Project/ShowProductsIntroduction.php',
+			dataType: "json",
+			async: false, // 使資料讀取完才跑下面程式
+			success: showProductsIntroductionData,
+			error: function(xhr, status, error) {
+				console.log("Status: " + status);
+				console.log("Error: " + error);
+				console.log("Response Text: " + xhr.responseText);
+				// alert('連線失敗-http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsIntroduction.php');
+				// alert('ERROR-http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsIntroduction.php');
+				alert('ERROR-http://192.168.60.11:8080/TCNR/0104/TCNR_Project/ShowProductsIntroduction.php');
+			}
+		});
+		// 取得品項和價格，插入到各產品頁面
+		$.ajax({
+			type: "GET",
+			// url: 'http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts.php',
+			// url: 'http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts.php',
+			url: 'http://192.168.60.11:8080/TCNR/0104/TCNR_Project/ShowProducts.php',
+			dataType: "json",
+			async: false,
+			success: showProductsData,
+			error: function(xhr, status, error) {
+				console.log("Status: " + status);
+				console.log("Error: " + error);
+				console.log("Response Text: " + xhr.responseText);
+				// alert('連線失敗-http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts.php');
+				// alert('ERROR-http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts.php');
+				alert('ERROR-http://192.168.60.11:8080/TCNR/0104/TCNR_Project/ShowProducts.php');
+			}
+		});
+		// 取得圖片路徑，將對應路徑插入封面圖與商品相片集
+		$.ajax({
+			type: "GET",
+			// url: 'http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php',
+			// url: 'http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php',
+			url: 'http://192.168.60.11:8080/TCNR/0104/TCNR_Project/ShowProductsImages.php',
+			dataType: "json",
+			async: false,
+			success: ShowProductsImage,
+			error: function(xhr, status, error) {
+				console.log("Status: " + status);
+				console.log("Error: " + error);
+				console.log("Response Text: " + xhr.responseText);
+				// alert('ERROR-http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php');
+				// alert('ERROR-http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php');
+				alert('ERROR-http://192.168.60.11:8080/TCNR/0104/TCNR_Project/ShowProductsImages.php');
+			}
+		});
+	});
+
+	showProductsIntroductionData = (data) => {
+		console.log(data); // test
+		$("#showProducts").empty();
+		data.forEach((item) => {
+			let productIntroduction = `
+			<div class="col-lg-3 col-md-4 col-sm-6 p-2">
+				<div id="product_ItemID_` + item.ItemID + `" class="product_box rounded-3 mx-auto mb-1 text-center" title="` + item.ProductName + `">
+					<div class="product_fade w-100 h-100">
+						<div class="bg-black w-100 h-100 rounded-3 opacity-75 d-flex flex-column justify-content-around align-items-lg-center">
+							<a id="" class="" href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_Item_` + item.ItemID + `" title="看商品內容">
+								<i class="fa-solid fa-magnifying-glass text-white fa-3x"></i>
+							</a>
+							<a id="" class="" href="javascript:;" data-bs-toggle="modal" data-bs-target="#" title="加入購物車">
+								<i class="fa-solid fa-cart-arrow-down text-white fa-3x"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<h5 class="text-truncate mx-auto text-white" title="` + item.ProductName + `">` + item.ProductName + `</h5>
+			</div>
+			<div class="modal fade" id="modal_Item_` + item.ItemID + `" tabindex="-1">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-3 fw_900">呵護汪汪 > 主餐 > 飼料</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-6 m-auto">
+									<div id="carousel_Item_` + item.ItemID + `" class="carousel slide carousel-dark" data-bs-ride="false">
+										<div class="carousel-inner" id="ItemID_` + item.ItemID + `"></div>
+										<button class="carousel-control-prev" type="button" data-bs-target="#carousel_Item_` + item.ItemID + `" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carousel_Item_` + item.ItemID + `" data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
+									</div>
+								</div>
+								<div class="col-lg-6 my-auto">
+									<h4 class="mb-3">` + item.ProductName + `</h4>
+									<pre>` + item.ProductIntroduction + `</pre>
+									<div class="mb-3">特色：
+										<span class="text-bg-danger badge">LaPetz 樂倍</span>
+										<span class="text-bg-info badge">台灣首創昆蟲寵物糧 </span>
+										<span class="text-bg-success badge">環保永續x完美蛋白</span>
+									</div>
+									<div class="row mb-3">
+										<div class="col-2 col-xl-1 text-nowrap">風味：</div>
+										<div class="col-10 col-xl-11" id="taste_` + item.ItemID + `"></div>
+									</div>
+									<div class="mb-3">價格：NT<span class="text-danger fw_900 mx-1">　</span>元/包</div>
+									<div class="mb-3">數量：　<span></span></div>
+									<input type="submit" value="訂購" class="btn btn-warning w-100" onclick="myFunction()">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">回上一頁</button>
+						</div>
+					</div>
+				</div>
+			</div>`;
+
+			$('#showProducts').append(productIntroduction);
+
+
+			// let ItemImg = `<div class="carousel-item bg_cover product_box active" style="background-image: url(./images/products/ItemID_` + item.ItemID + `/Introduction01.jpg);"></div>`;
+
+			// $('.carousel-inner').append();
+		});
+	};
+
+	showProductsData = (data) => {
+		console.log(data); // test
+
+		// 將品項口味代入各產品頁面
+		data.forEach((item) => {
+			let Category = `<button 
+							type="button" 
+							class="btn btn-sm btn-outline-success" 
+							id="ProductID_` + item.ProductID_ + `"  
+							data-price="` + item.ProductPrice + `" 
+							onclick="showPrice(this)"
+							>` + item.ProductCategory + `</button>`;
+			let taste = $('#taste_' + item.ItemID);
+			if (taste.length > 0) {
+				taste.append(Category); // 若 taste 欄位存在，帶入各口味按鈕
+			}
+		});
+	}
+		
+	// ShowProductsImage 這段需再複習
+	ShowProductsImage = (response) => {
+		// 迭代每個 PID 和對應的圖片路徑
+		for (const ItemID_Folder in response) {
+			// console.log(ItemID_Folder); // ItemID_1
+
+			const images = response[ItemID_Folder]; //取得 ItemID_ 鍵(子資料夾)的值(物件)
+			// console.log(typeof(images)); // object
+			const CoverPhoto = $('#product_' + ItemID_Folder); // 根據鍵名找到對應的封面容器
+			const imgsBox = $('#' + ItemID_Folder); // 根據鍵名找到對應的圖片集的容器
+			let isFirstImage = true; // 用於判斷第一筆圖片
+			
+			// 確保封面是 Introduction01.jpg
+			const introImage = Object.values(images).find(path => path.includes('Introduction01.jpg'));
+			console.log(introImage);
+			if (introImage) {
+				CoverPhoto.css('background-image', `url(${introImage})`);
+			}
+
+			// 如果有圖片，插入圖片集容器
+			Object.values(images).forEach((imagePath) => {
+				const imgElement = `<div class="carousel-item bg_cover product_box ${isFirstImage ? 'active' : ''}" style="background-image: url(` + imagePath + `);"></div>`;
+				imgsBox.append(imgElement); // 將圖片插入到對應的容器中
+				isFirstImage = false;
+			});
+		}
+	}
+
+</script>
 
 <script src="./js/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
@@ -869,90 +1060,104 @@
 <script>
 	const { ref, reactive, watch, onBeforeMount, onMounted, onUpdated } = Vue; // 從 Vue 提取屬性以簡化後續寫法。須寫在 App 同層
 	const App = {
-		setup(){
-			// register
-			const reg_Account = ref('');
-			const flag_reg_Account = ref(false);
-			watch(reg_Account, (newValue) => {
-				// console.log(newValue.length);
-				if(newValue.length > 7 && newValue.length < 21){
-					flag_reg_Account.value = true; // 符合規定
-				}else{
-					flag_reg_Account.value = false;
+        setup(){
+            // register
+            const reg_Account = ref('');
+            const flag_reg_Account = ref(false);
+			watch(
+				reg_Account, (newValue) => {
+					// console.log(newValue.length);
+					if(newValue.length > 7 && newValue.length < 21){
+						flag_reg_Account.value = true; // 符合規定
+					}else{
+						flag_reg_Account.value = false;
+					}
 				}
-			});
-			const reg_Password = ref('');
-			const flag_reg_Password = ref(false);
-			watch(reg_Password, (newValue) => {
-				if(newValue.length > 7 && newValue.length < 21){
-					flag_reg_Password.value = true; // 符合規定
-					// 連動判定確認密碼欄位
-					if(reg_Password.value == reg_rePassword.value){
-						flag_reg_rePassword.value = true; // 符合規定
+			);
+            const reg_Password = ref('');
+            const flag_reg_Password = ref(false);
+			watch(
+				reg_Password, (newValue) => {
+					if(newValue.length > 7 && newValue.length < 21){
+						flag_reg_Password.value = true; // 符合規定
+						// 連動判定確認密碼欄位
+						if(reg_Password.value == reg_rePassword.value){
+							flag_reg_rePassword.value = true; // 符合規定
+						}else{
+							flag_reg_rePassword.value = false;
+						}
+					}else{
+						flag_reg_Password.value = false;
+						flag_reg_rePassword.value = false; // watch 只監聽此欄，須加上連動
+					}
+				}
+			);
+            const reg_rePassword = ref('');
+            const flag_reg_rePassword = ref(false);
+			watch(
+				reg_rePassword, (newValue) => {
+					// 先連動確認註冊密碼
+					if(flag_reg_Password.value){
+						if(reg_Password.value == reg_rePassword.value){
+							flag_reg_rePassword.value = true; // 符合規定
+						}else{
+							flag_reg_rePassword.value = false;
+						}
 					}else{
 						flag_reg_rePassword.value = false;
 					}
-				}else{
-					flag_reg_Password.value = false;
-					flag_reg_rePassword.value = false; // watch 只監聽此欄，須加上連動
 				}
-			});
-			const reg_rePassword = ref('');
-			const flag_reg_rePassword = ref(false);
-			watch(reg_rePassword, (newValue) => {
-				// 先連動確認註冊密碼
-				if(flag_reg_Password.value){
-					if(reg_Password.value == reg_rePassword.value){
-						flag_reg_rePassword.value = true; // 符合規定
+			);
+            const reg_Name = ref('');
+            const flag_reg_Name = ref(false);
+			watch(
+				reg_Name, (newValue) => {
+					if(newValue.length > 3 && newValue.length < 21){
+						flag_reg_Name.value = true;
 					}else{
-						flag_reg_rePassword.value = false;
+						flag_reg_Name.value = false;
 					}
-				}else{
-					flag_reg_rePassword.value = false;
 				}
-			});
-			const reg_Name = ref('');
-			const flag_reg_Name = ref(false);
-			watch(reg_Name, (newValue) => {
-				if(newValue.length > 3 && newValue.length < 21){
-					flag_reg_Name.value = true;
-				}else{
-					flag_reg_Name.value = false;
+			);
+            const reg_Tel = ref('');
+            const flag_reg_Tel = ref(false);
+			watch(
+				reg_Tel, (newValue) => {
+					if(newValue.length > 7 && newValue.length < 21){
+						flag_reg_Tel.value = true;
+					}else{
+						flag_reg_Tel.value = false;
+					}
 				}
-			});
-			const reg_Tel = ref('');
-			const flag_reg_Tel = ref(false);
-			watch(reg_Tel, (newValue) => {
-				if(newValue.length > 7 && newValue.length < 21){
-					flag_reg_Tel.value = true;
-				}else{
-					flag_reg_Tel.value = false;
+			);
+            const reg_Email = ref('');
+            const flag_reg_Email = ref(false);
+			watch(
+				reg_Email, (newValue) => {
+					if(newValue.length > 9 && newValue.length < 31){
+						flag_reg_Email.value = true;
+					}else{
+						flag_reg_Email.value = false;
+					}
 				}
-			});
-			const reg_Email = ref('');
-			const flag_reg_Email = ref(false);
-			watch(reg_Email, (newValue) => {
-				if(newValue.length > 9 && newValue.length < 31){
-					flag_reg_Email.value = true;
-				}else{
-					flag_reg_Email.value = false;
+			);
+            const reg_chk_text = ref('不同意');
+            const flag_reg_chk = ref(false);
+			watch(
+				flag_reg_chk, () => {
+					if(flag_reg_chk){
+						reg_chk_text.value = '同意';
+					}else{
+						reg_chk_text.value = '不同意';
+					}
 				}
-			});
-			const reg_chk_text = ref('不同意');
-			const flag_reg_chk = ref(false);
-			watch(flag_reg_chk, () => {
-				if(flag_reg_chk){
-					reg_chk_text.value = '同意';
-				}else{
-					reg_chk_text.value = '不同意';
-				}
-			});
+			);
 			const register = () => {
-				if(flag_reg_Account.value && flag_reg_Password.value && flag_reg_rePassword.value && flag_reg_Name.value && flag_reg_Tel.value && flag_reg_Email.value && flag_reg_chk.value){
+				if(flag_reg_Account && flag_reg_Password && flag_reg_rePassword && flag_reg_Name && flag_reg_Tel && flag_reg_Email && flag_reg_chk){
 
 					// Send a POST request
-					// {"RegisterAccount": "test8888", "RegisterPassword": "88888888", "RegisterName": "Champion", "RegisterTel": "0988777888", "RegisterEmail": "test@gmail.com"}
-					var dataJSON = {};
+                    // {"RegisterAccount": "test8888", "RegisterPassword": "88888888", "RegisterName": "Champion", "RegisterTel": "0988777888", "RegisterEmail": "test@gmail.com"}
+					const dataJSON = reactive({});
 					dataJSON["RegisterAccount"] = reg_Account;
 					dataJSON["RegisterPassword"] = reg_Password;
 					dataJSON["RegisterName"] = reg_Name;
@@ -963,36 +1168,34 @@
 					// // 寫法一
 					// axios({
 					// 	method: 'post',
-					//     url: './member_register_api.php',
-					//     data: JSON.stringify(dataJSON),
+                    //     url: './member_register_api.php',
+                    //     data: JSON.stringify(dataJSON),
 					// })
 					// .then((response) => {
-					//     // console.log(response);
-					//     if(response.data.state){
-					//         alert(response.data.message);
-					//         location.href = './index.html';
-					//     }else{
-					//         alert(response.data.message);
-					//     }
-					// })
-					// .catch((error) => {
-					//     console.error(error);
-					// });
+                    //     // console.log(response);
+                    //     if(response.data.state){
+                    //         alert(response.data.message);
+                    //         location.href = './index.html';
+                    //     }else{
+                    //         alert(response.data.message);
+                    //     }
+                    // })
+                    // .catch((error) => {
+                    //     console.error(error);
+                    // });
 
 					// 寫法二
 					axios.post('./member_register_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
-							alert(res.data.message);
-							$('#RegisterModal').modal('hide'); // 用 jQuery 隱藏
-							// const a = () => {location.href = './index.html';}
-							// a();
-						}else{
-							alert(res.data.message);
-						}
+                            alert(res.data.message);
+                            location.href = './index.html';
+                        }else{
+                            alert(res.data.message);
+                        }
 					})
 					.catch((error) => {
-						console.error(error); // 錯誤時，顯示錯誤
+					    console.error(error); // 錯誤時，顯示錯誤
 					});
 				}
 			};
@@ -1000,176 +1203,115 @@
 			// login
 			const login_Account = ref('');
 			const flag_login_Account = ref(false);
-			watch(login_Account, (newValue) => {
-				if(login_Account.value != ''){
-					flag_login_Account.value = true;
-				}else{
-					flag_login_Account.value = false;
+			watch(
+				login_Account, (newValue) => {
+					if(login_Account.value != ''){
+						flag_login_Account.value = true;
+					}else{
+						flag_login_Account.value = false;
+					}
 				}
-			});
+			);
 			const login_Password = ref('');
 			const flag_login_Password = ref(false);
 			const flag_login = ref(false);
-			watch(login_Password, (newValue) => {
-				if(login_Password.value != ''){
-					flag_login_Password.value = true;
-				}else{
-					flag_login_Password.value = false;
+			watch(
+				login_Password, (newValue) => {
+					if(login_Password.value != ''){
+						flag_login_Password.value = true;
+					}else{
+						flag_login_Password.value = false;
+					}
 				}
-			});
-			const user_login_data = reactive([]);
-            const setCookie = (cname, cvalue, exdays) => {
-                const d = new Date();
-                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); // exdays 為效期，輸入天數，函數轉毫秒
-                let expires = "expires="+d.toUTCString();
-                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-            };
-            const getCookie = (cname) => {
-                let name = cname + "=";
-                let ca = document.cookie.split(';');
-                for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                        return c.substring(name.length, c.length);
-                    }
-                }
-                return "";
-            };
-            const checkCookie = () => {
-                let user = getCookie("username");
-                if (user != "") {
-                    alert("Welcome again " + user);
-                } else {
-                    user = prompt("Please enter your name:", "");
-                    if (user != "" && user != null) {
-                        setCookie("username", user, 365);
-                    }
-                }
-            };
+			);
 			const login = () => {
-				if(flag_login_Account.value && flag_login_Password.value){
+				if(flag_login_Account && flag_login_Password){
 					// Send a POST request
-					// {"MemberAccount": "test8888", "MemberPassword": "88888888"}
-					var dataJSON = {};
+                    // {"MemberAccount": "test8888", "MemberPassword": "88888888"}
+					const dataJSON = reactive({});
 					dataJSON["MemberAccount"] = login_Account;
 					dataJSON["MemberPassword"] = login_Password;
-					// console.log(JSON.stringify(dataJSON));
 
 					axios.post('./member_login_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
-							alert(res.data.message);
+                            alert(res.data.message);
 							alert('歡迎回來！　' + res.data.memberName);
 							flag_login.value = true;
-							setCookie("Uid01", res.data.data.Uid01, 7); // 將金鑰存入 cookie 7天
-                            user_login_data = res.data.member_data; // 用變數儲存，於畫面任意處引用
-							// let a = () =>{location.href = './index.html';}
-							// a();
-						}else{
-							alert(res.data.message);
-						}
+                            // location.href = './index.html';
+                        }else{
+                            alert(res.data.message);
+                        }
 					})
 					.catch((error) => {
-						console.error(error); // 錯誤時，顯示錯誤
+					    console.error(error); // 錯誤時，顯示錯誤
 					});
 				}
 			}
-			
-			const isLoad = ref(false); // 畫面載入時只顯示Loading圖片
+            
+			// const isLoad = ref(false); // 畫面載入時只顯示Loading圖片
+			const isLoad = ref(true); // 畫面載入時只顯示Loading圖片
 
-			// 列出商品
-			const productsIntroduction = reactive({ content: [] }); // ShowProductsIntroduction
-			const products = reactive({ content: [] }); // ShowProducts
+            // 照片按鈕功能
+            // const imgIdx = ref(0); //第一張照片
+            // const imgAdd = () => {
+            //     imgIdx.value++;
+            //     if(imgIdx.value > imgArr.arr.length -1){
+            //         imgIdx.value = 0; // 照片循環，大於末張索引，則回到第一張
+            //     }
+            // };
+            // const imgRemove = () => {
+            //     imgIdx.value--;
+            //     if(imgIdx.value < 0){
+            //         imgIdx.value = imgArr.arr.length -1; // 照片循環，小於 0 則回到最後一張
+            //     }
+            // };
 
-			// 根據傳入的 itemId 查找所有在 products.content 中符合 ItemID 的商品，並返回一個 ProductCategory 的陣列
-			const getProductCategoriesByItemID = (itemId) => {
-				return products.content
-					.filter(p => p.ItemID === itemId) // filter(p => p.ItemID === itemId) 過濾出符合 ItemID 的商品
-					.map(p => p.ProductCategory); // map(p => p.ProductCategory) 提取符合商品的 ProductCategory，並返回一個包含所有口味的陣列
-			};
+            // 圖片非同步載入
+            // 若傳輸的資料龐大(例如很多圖片)，普通狀態為先秀出畫面容器再逐一加載進去
+            // 使用以下函式達成全部的 .Photo 加載完再秀出
+            // const handImgLoad = (dataArray) => {
+            //     let i = 0;
+            //     dataArray.forEach((item) => {
+            //         const newImg = new Image(); // 宣告一空白 Image 物件
+            //         newImg.src = item.Photo; // 宣告一空白屬性 .src，將來源 data 的 .Photo 放入
+            //         newImg.onload = () => {
+            //             i++;
+            //             // 若全部讀取完
+            //             if(dataArray.length === i){
+            //                 // console.log('loading '+ i +' OK!') // test
+            //                 imgArr.arr = dataArray; // 將資料塞回原陣列
+            //                 isLoad.value = true; // 顯出 .box 並隱藏 .load 圖片
+            //             }
+            //         }
+            //     });
+            // };
 
-			// const productImages = reactive({ content: [] }); // ShowProductsImages
-			// const imagesLoading = reactive({}); // 儲存每個商品的加載狀態
-
-			// 這是異步加載圖片的函數
-			// const loadImagesForItem = async (itemId) => {
-			// 	if (imagesLoading[itemId]) {
-			// 		return; // 如果已經在加載中，則跳過
-			// 	}
-			// 	imagesLoading[itemId] = true; // 設置為正在加載
-
-			// 	// 假設這是圖片的 API 請求，並且返回的是對應 itemId 的圖片數據
-			// 	try {
-			// 		const response = await axios.get(`http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php?itemId=${itemId}`);
-			// 		// 假設返回的數據形狀是這樣的：{ "ItemID_1": { "Img_1": ..., "Img_2": ..., ... }, ... }
-			// 		productImages.content[`ItemID_${itemId}`] = response.data[`ItemID_${itemId}`]; // 存儲對應 ItemID 的圖片數據
-			// 	} catch (error) {
-			// 		console.error("圖片加載錯誤：", error);
-			// 	} finally {
-			// 		imagesLoading[itemId] = false; // 無論成功還是失敗，設置加載狀態為完成
-			// 	}
-			// };
-
-			onMounted(() => {
-				// Promise.all 會確保兩個 axios 請求都完成後，再進行資料處理
-				Promise.all([
-					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsIntroduction.php'),
-					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
-					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php'),
-
-					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsIntroduction.php'),
-					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts2.php'),
-					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php'),
-				])
-				.then(([productsIntroductionRes, productsRes]) =>{
-					// 資料加載完成後，處理 productsIntroduction 資料
-					productsIntroduction.content = productsIntroductionRes.data; // 抓取品項資料
-					console.log(productsIntroduction.content);
-					products.content = productsRes.data; // 抓取產品細項
-					console.log(products.content);
-					isLoad.value = true;
-
-					// 處理商品口味
-					productsIntroduction.content.forEach((item) => {
-						const categories = getProductCategoriesByItemID(item.ItemID);
-						console.log(`商品品項: ${item.ProductName} 具有以下口味: ${categories.join(', ')}`);
-					});
-
-					// // 為每個商品品項加載圖片
-					// productsIntroduction.content.forEach(item => {
-					// 	loadImagesForItem(item.ItemID); // 開始加載圖片
-					// });
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-			});
-			
-			// 所有定義好的內容須 return 回去關聯
-			return{
-				// register
-				reg_Account, flag_reg_Account,
-				reg_Password, flag_reg_Password,
-				reg_rePassword, flag_reg_rePassword,
-				reg_Name, flag_reg_Name,
+            // onMounted(() => {
+				
+            // });
+            
+            // 所有定義好的內容須 return 回去關聯
+            return{
+                // register
+                reg_Account, flag_reg_Account,
+                reg_Password, flag_reg_Password,
+                reg_rePassword, flag_reg_rePassword,
+                reg_Name, flag_reg_Name,
 				reg_Tel, flag_reg_Tel,
 				reg_Email, flag_reg_Email,
 				reg_chk_text, flag_reg_chk,
 				register,
-				// login
+                // login
 				login_Account, flag_login_Account,
 				login_Password, flag_login_Password,
 				login, flag_login,
-				// showProducts
-				isLoad, productsIntroduction, products, getProductCategoriesByItemID,
-				// productImages, imagesLoading, loadImagesForItem,
-			};
-		},
-	}
-	Vue.createApp(App).mount('#app')
+
+				isLoad,
+            };
+        },
+    }
+    Vue.createApp(App).mount('#app')
 </script>
 
-</html>	
+</html>

@@ -166,8 +166,13 @@ body .testPic {
   background-repeat: no-repeat;
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  body section#s03 #showProducts div.modal div.modal-dialog div.modal-content div.modal-body div.row div.carousel div.carousel-inner > div {
+    width: 360px;
+  }
+}
 @media (max-width: 992px) {
-  section#s02 div#carousel_02 div.carousel-inner div.carousel-item {
+  body section#s02 div#carousel_02 div.carousel-inner div.carousel-item {
     overflow-x: auto;
     scrollbar-width: none;
   }
