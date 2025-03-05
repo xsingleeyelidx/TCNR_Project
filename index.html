@@ -47,11 +47,11 @@
 			</div>
 			<!-- L&R Btn -->
 			<button class="carousel-control-prev" type="button" data-bs-target="#carousel_01" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="carousel-control-prev-icon"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 			<button class="carousel-control-next" type="button" data-bs-target="#carousel_01" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="carousel-control-next-icon"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
@@ -232,6 +232,7 @@
 							</form>
 						</div>
 					</div>
+					<button type="button" class="btn btn-success ms-3" v-show="flag_login" @click="logout">登出</button>
 				</span>
 			</div>
 		</div>
@@ -1019,7 +1020,7 @@
 				}
 			};
 			
-			// login
+			// login & logout
 			const login_Account = ref('');
 			const flag_login_Account = ref(false);
 			watch(login_Account, (newValue) => {
@@ -1031,7 +1032,6 @@
 			});
 			const login_Password = ref('');
 			const flag_login_Password = ref(false);
-			const flag_login = ref(false);
 			watch(login_Password, (newValue) => {
 				if(login_Password.value != ''){
 					flag_login_Password.value = true;
@@ -1039,7 +1039,8 @@
 					flag_login_Password.value = false;
 				}
 			});
-			const user_login_data = reactive([]);
+			const flag_login = ref(false);
+			const user_login_data = reactive({ content: [] });
             const setCookie = (cname, cvalue, exdays) => {
                 const d = new Date();
                 d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); // exdays 為效期，輸入天數，函數轉毫秒
@@ -1076,18 +1077,19 @@
 					// Send a POST request
 					// {"MemberAccount": "test8888", "MemberPassword": "88888888"}
 					var dataJSON = {};
-					dataJSON["MemberAccount"] = login_Account;
-					dataJSON["MemberPassword"] = login_Password;
+					dataJSON["MemberAccount"] = login_Account.value;
+					dataJSON["MemberPassword"] = login_Password.value;
 					// console.log(JSON.stringify(dataJSON));
 
 					axios.post('./member_login_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
 							alert(res.data.message);
-							alert('歡迎回來！　' + res.data.memberName);
+							alert('歡迎回來！　' + res.data.member_data.MemberName);
 							flag_login.value = true;
-							setCookie("Uid01", res.data.data.Uid01, 7); // 將金鑰存入 cookie 7天
-                            user_login_data = res.data.member_data; // 用變數儲存，於畫面任意處引用
+							setCookie("Uid01", res.data.member_data.Uid01, 7); // 將金鑰存入 cookie 7天
+							user_login_data.content = res.data.member_data; // 將資訊複製到本地
+							$('#MemberLoginModal').modal('hide'); // 用 jQuery 隱藏 Modal
 							// let a = () =>{location.href = './index.html';}
 							// a();
 						}else{
@@ -1099,6 +1101,42 @@
 					});
 				}
 			}
+			// 載入頁面時檢查有無 cookie 並送出，將查詢結果用變數記下來
+            if(getCookie('Uid01')){
+                // 傳到後端做驗證
+                var dataJSON = {};
+                dataJSON["uid01"] = getCookie('Uid01');
+                // console.log(JSON.stringify(dataJSON));
+
+                axios({
+                    method: 'post',
+                    url: './member_check_api.php',
+                    data: JSON.stringify(dataJSON),
+                })
+                .then((response) => {
+                    // console.log(response);
+
+                    // 設條件判斷，避免查無變 undefined
+                    if(response.data.state){
+                        user_login_data.content = response.data.member_data; // 有則紀錄
+						flag_login.value = true;
+                    }else{
+                        user_login_data.content = []; // 無則為空
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+            };
+			const logout = () => {
+                if(confirm('確認要登出嗎？') == 1){
+                    user_login_data.content = []; // 清空
+                    setCookie('Uid01', '', 0); // 直接呼叫函式將期限設為 0，消除 cookie
+                    // document.cookie = "Uid01=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // 官網的方法，將時間設為過去，一樣過期
+                    // location.href = 'SPA.html';
+					flag_login.value = false;
+                }
+            };
 			
 			// 列出商品
             const isLoad = ref(false); // 畫面載入時顯示 Loading 圖
@@ -1177,7 +1215,6 @@
 				// 	});
 			};
 
-
 			onMounted(() => {
 				axios.all([
 					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
@@ -1220,10 +1257,6 @@
                 $('#productModal').on('hidden.bs.modal', clear); // 用 jQuery 監聽 Modal
 			});
 
-			onUpdated(() => {
-				console.log(toRaw(cart));
-			});
-
 			onBeforeUnmount(() => {
 				$('#productModal').on('hidden.bs.modal', clear); // 組件卸載時移除監聽
 			});
@@ -1241,7 +1274,8 @@
 				// login
 				login_Account, flag_login_Account,
 				login_Password, flag_login_Password,
-				login, flag_login,
+				setCookie, getCookie, checkCookie,
+				login, logout, flag_login, user_login_data,
 				// showProducts
 				isLoad, products, showItem, firstProductImg, selectedItem, 
                 openModal, price, quantity, clear, productImages,

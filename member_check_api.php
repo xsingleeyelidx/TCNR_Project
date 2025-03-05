@@ -11,7 +11,7 @@ if(isset($myData['uid01'])){
 
         $p_uid01 = $myData['uid01'];
 
-        $sql = "SELECT MemberID, MemberAccount, MemberName, MemberTel, MemberEmail, Level, Uid01, CreatedTime FROM members WHERE MemberAccount = '$p_MemberAccount'";
+        $sql = "SELECT MemberID, MemberAccount, MemberName, MemberTel, MemberEmail, Level, Uid01, CreatedTime FROM members WHERE Uid01 = '$p_uid01'";
         $result = mysqli_query($link, $sql);
 
         // 改用 mysqli_num_rows() 為確認條件
