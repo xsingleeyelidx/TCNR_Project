@@ -434,7 +434,7 @@
 							<div class="invalid-feedback">欄位不得空白</div>
 						</div>
 						<div class="mb-3 form-floating">
-							<input type="text" name="MemberPassword" v-model="login_Password" :class="{'is-invalid' : !flag_login_Password}" class="form-control" placeholder="">
+							<input type="text" name="MemberPassword" v-model="login_Password" :class="{'is-invalid' : !flag_login_Password}" class="form-control" placeholder="" @keyup.enter="login">
 							<label class="form-label">請輸入會員密碼</label>
 							<div class="invalid-feedback">欄位不得空白</div>
 						</div>
@@ -838,7 +838,7 @@
                                     </div>
                                     <div class="mb-3">價格：NT<span class="text-danger fw_900 mx-1"> {{ price }} </span>元/一件</div>
                                     <div class="mb-3">數量：　<span class="text-success fw_900"> {{ quantity }} </span> 件</div>
-                                    <button type="button" class="btn btn-warning w-100">訂購</button>
+                                    <button type="button" class="btn btn-warning w-100" @click="addToCart(selectedItem)">訂購</button>
                                 </div>
                             </div>
                         </div>
@@ -976,12 +976,12 @@
 					// Send a POST request
 					// {"RegisterAccount": "test8888", "RegisterPassword": "88888888", "RegisterName": "Champion", "RegisterTel": "0988777888", "RegisterEmail": "test@gmail.com"}
 					var dataJSON = {};
-					dataJSON["RegisterAccount"] = reg_Account;
-					dataJSON["RegisterPassword"] = reg_Password;
-					dataJSON["RegisterName"] = reg_Name;
-					dataJSON["RegisterTel"] = reg_Tel;
-					dataJSON["RegisterEmail"] = reg_Email;
-					// console.log(JSON.stringify(dataJSON));
+					dataJSON["RegisterAccount"] = reg_Account.value;
+					dataJSON["RegisterPassword"] = reg_Password.value;
+					dataJSON["RegisterName"] = reg_Name.value;
+					dataJSON["RegisterTel"] = reg_Tel.value;
+					dataJSON["RegisterEmail"] = reg_Email.value;
+					console.log(JSON.stringify(dataJSON));
 
 					// // 寫法一
 					// axios({
@@ -1003,7 +1003,8 @@
 					// });
 
 					// 寫法二
-					axios.post('./member_register_api.php', JSON.stringify(dataJSON))
+					// axios.post('./member_register_api.php', JSON.stringify(dataJSON))
+					axios.post('http://xsingleeyelidx.byethost4.com/TCNR_Project/member_register_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
 							alert(res.data.message);
@@ -1081,7 +1082,8 @@
 					dataJSON["MemberPassword"] = login_Password.value;
 					// console.log(JSON.stringify(dataJSON));
 
-					axios.post('./member_login_api.php', JSON.stringify(dataJSON))
+					// axios.post('./member_login_api.php', JSON.stringify(dataJSON))
+					axios.post('http://xsingleeyelidx.byethost4.com/TCNR_Project/member_login_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
 							alert(res.data.message);
@@ -1110,7 +1112,8 @@
 
                 axios({
                     method: 'post',
-                    url: './member_check_api.php',
+                    // url: './member_check_api.php',
+                    url: 'http://xsingleeyelidx.byethost4.com/TCNR_Project/member_check_api.php',
                     data: JSON.stringify(dataJSON),
                 })
                 .then((response) => {
@@ -1187,10 +1190,10 @@
 				const orderData = {
 					userID: getCookie("Uid01"), // 取得用戶登入的 ID
 					items: cart.map(item => ({
-						ItemID: item.ItemID,
+						ProductID: item.ProductID,
 						ProductName: item.ProductName,
-						Quantity: item.quantity,
-						Price: item.ProductPrice
+						Price: item.ProductPrice,
+						Quantity: item.quantity
 					})),
 					totalAmount: totalPrice.value
 				};
@@ -1217,10 +1220,10 @@
 
 			onMounted(() => {
 				axios.all([
-					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
-					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php'),
-					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts2.php'),
-					axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php'),
+					axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
+					axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php'),
+					// axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts2.php'),
+					// axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php'),
 				])
 				.then((res) => {
 					products.push(...res[0].data); // 用擴展運算符 ...，將 res[0].data 中所有元素依次添加到 products 陣列中
