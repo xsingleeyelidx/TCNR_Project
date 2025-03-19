@@ -1003,8 +1003,9 @@
 					// });
 
 					// 寫法二
+					axios.post('https://github.com/xsingleeyelidx/TCNR_Project/blob/main/member_register_api.php', JSON.stringify(dataJSON))
+					// axios.post('http://xsingleeyelidx.byethost4.com/TCNR_Project/member_register_api.php', JSON.stringify(dataJSON))
 					// axios.post('./member_register_api.php', JSON.stringify(dataJSON))
-					axios.post('http://xsingleeyelidx.byethost4.com/TCNR_Project/member_register_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
 							alert(res.data.message);
@@ -1082,8 +1083,9 @@
 					dataJSON["MemberPassword"] = login_Password.value;
 					// console.log(JSON.stringify(dataJSON));
 
+					axios.post('https://github.com/xsingleeyelidx/TCNR_Project/blob/main/member_login_api.php', JSON.stringify(dataJSON))
+					// axios.post('http://xsingleeyelidx.byethost4.com/TCNR_Project/member_login_api.php', JSON.stringify(dataJSON))
 					// axios.post('./member_login_api.php', JSON.stringify(dataJSON))
-					axios.post('http://xsingleeyelidx.byethost4.com/TCNR_Project/member_login_api.php', JSON.stringify(dataJSON))
 					.then((res) => {
 						if(res.data.state){
 							alert(res.data.message);
@@ -1113,7 +1115,8 @@
                 axios({
                     method: 'post',
                     // url: './member_check_api.php',
-                    url: 'http://xsingleeyelidx.byethost4.com/TCNR_Project/member_check_api.php',
+                    // url: 'http://xsingleeyelidx.byethost4.com/TCNR_Project/member_check_api.php',
+                    url: 'https://github.com/xsingleeyelidx/TCNR_Project/blob/main/member_check_api.php',
                     data: JSON.stringify(dataJSON),
                 })
                 .then((response) => {
@@ -1220,8 +1223,10 @@
 
 			onMounted(() => {
 				axios.all([
-					axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
-					axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php'),
+					axios.get('https://github.com/xsingleeyelidx/TCNR_Project/blob/main/ShowProducts2.php'),
+					axios.get('https://github.com/xsingleeyelidx/TCNR_Project/blob/main/ShowProductsImages.php'),
+					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProducts2.php'),
+					// axios.get('http://xsingleeyelidx.byethost4.com/TCNR_Project/ShowProductsImages.php'),
 					// axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProducts2.php'),
 					// axios.get('http://192.168.1.109:8080/VersionManagement/TCNR_Project/ShowProductsImages.php'),
 				])
